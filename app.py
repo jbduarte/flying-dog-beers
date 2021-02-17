@@ -55,9 +55,30 @@ fig.update_layout(title='Simulations',
                    xaxis_title='k',
                    yaxis_title='Value')
 
+# external JavaScript files
+external_scripts = [
+    'https://www.google-analytics.com/analytics.js',
+    {'src': 'https://cdn.polyfill.io/v2/polyfill.min.js'},
+    {
+        'src': 'https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.10/lodash.core.js',
+        'integrity': 'sha256-Qqd/EfdABZUcAxjOkMi8eGEivtdTkh3b65xCZL4qAQA=',
+        'crossorigin': 'anonymous'
+    }
+]
+
+# external CSS stylesheets
+external_stylesheets = [
+    'https://codepen.io/chriddyp/pen/bWLwgP.css',
+    {
+        'href': 'https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css',
+        'rel': 'stylesheet',
+        'integrity': 'sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO',
+        'crossorigin': 'anonymous'
+    }
+]
 
 ########### Initiate the app
-app = dash.Dash(__name__)
+app = dash.Dash(__name__, external_scripts=external_scripts, external_stylesheets=external_stylesheets)
 server = app.server
 app.title=tabtitle
 
@@ -115,7 +136,7 @@ app.layout = html.Div([
         value=2
     ),
     dcc.Graph(id='graph', figure = fig)
-], style={'padding': '0px 20px 20px 20px'})
+])
 
 # Define callback to update graph
 @app.callback(
@@ -146,6 +167,6 @@ def update_figure(selected_s, selected_delta, selected_n, selected_α, selected_
     return fig
 
 if __name__ == '__main__':
-    app.run_server()
+    app.run_server(debug=True)
 
 
