@@ -70,7 +70,6 @@ app.layout = html.Div([
     ),
      html.Label('Savings rate'),
     html.Br(),
-    html.Br(),
     dcc.Slider(
         id='s-slider',
         min=0.1,
@@ -79,8 +78,8 @@ app.layout = html.Div([
         marks={i: str(round(i,1)) for i in np.linspace(0.1,0.9,9)},
         value=0.3
     ),
-    html.Label('Depreciation rate'),
     html.Br(),
+    html.Label('Depreciation rate'),
     html.Br(),
     dcc.Slider(
         id='delta-slider',
@@ -90,8 +89,8 @@ app.layout = html.Div([
         marks={i: str(round(i,1)) for i in np.linspace(0.1,0.9,9)},
         value=0.1
     ),
-    html.Label('Population growth rate'),
     html.Br(),
+    html.Label('Population growth rate'),
     html.Br(),
     dcc.Slider(
         id='n-slider',
@@ -101,8 +100,8 @@ app.layout = html.Div([
         marks={i: str(round(i,2)) for i in np.linspace(0.01,0.09,9)},
         value=0.05
     ),
-    html.Label('Alpha'),
     html.Br(),
+    html.Label('Alpha'),
     html.Br(),
     dcc.Slider(
         id='alpha-slider',
@@ -112,8 +111,8 @@ app.layout = html.Div([
         marks={i: str(round(i,1)) for i in np.linspace(0.1,0.9,9)},
         value=0.3
     ),
-    html.Label('Technology'),
     html.Br(),
+    html.Label('Technology'),
     html.Br(),
     dcc.Slider(
         id='tec-slider',
@@ -123,7 +122,6 @@ app.layout = html.Div([
         marks={i: str(round(i,1)) for i in range(1,10)},
         value=2
     ),
-    html.Br(),
     html.Br(),
     dcc.Graph(id='graph', figure = fig)
 ], style={'padding': 40})
@@ -157,6 +155,6 @@ def update_figure(selected_s, selected_delta, selected_n, selected_α, selected_
     return fig
 
 if __name__ == '__main__':
-    app.run_server(debug=True)
+    app.run_server()
 
 
