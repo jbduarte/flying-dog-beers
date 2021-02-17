@@ -9,7 +9,7 @@ import numpy as np
 mytitle='Solow Model'
 tabtitle='Solow App'
 myheading='Solow Model Simulations'
-githublink='https://github.com/austinlasseter/flying-dog-beers'
+githublink='https://github.com/jbduarte/flying-dog-beers'
 sourceurl='https://www.flyingdog.com/beers/'
 
 ########### Set up the chart
@@ -57,8 +57,7 @@ fig.update_layout(title='Simulations',
 
 
 ########### Initiate the app
-external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
-app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
+app = dash.Dash(__name__)
 server = app.server
 app.title=tabtitle
 
