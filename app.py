@@ -115,7 +115,7 @@ app.layout = html.Div([
         value=2
     ),
     dcc.Graph(id='graph', figure = fig)
-])
+], style={'padding': '0px 20px 20px 20px'})
 
 # Define callback to update graph
 @app.callback(
