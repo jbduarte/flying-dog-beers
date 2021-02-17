@@ -68,7 +68,9 @@ app.layout = html.Div([
             'textAlign': 'center'
         }
     ),
-     html.Label('Savings rate', style={"margin-top": "15px"}),
+     html.Label('Savings rate'),
+    html.Br(),
+    html.Br(),
     dcc.Slider(
         id='s-slider',
         min=0.1,
@@ -78,6 +80,8 @@ app.layout = html.Div([
         value=0.3
     ),
     html.Label('Depreciation rate'),
+    html.Br(),
+    html.Br(),
     dcc.Slider(
         id='delta-slider',
         min=0.1,
@@ -87,6 +91,8 @@ app.layout = html.Div([
         value=0.1
     ),
     html.Label('Population growth rate'),
+    html.Br(),
+    html.Br(),
     dcc.Slider(
         id='n-slider',
         min=0.01,
@@ -96,6 +102,8 @@ app.layout = html.Div([
         value=0.05
     ),
     html.Label('Alpha'),
+    html.Br(),
+    html.Br(),
     dcc.Slider(
         id='alpha-slider',
         min=0.1,
@@ -104,7 +112,9 @@ app.layout = html.Div([
         marks={i: str(round(i,1)) for i in np.linspace(0.1,0.9,9)},
         value=0.3
     ),
-    html.Label('Technology',  style={'padding': 40}),
+    html.Label('Technology'),
+    html.Br(),
+    html.Br(),
     dcc.Slider(
         id='tec-slider',
         min=1,
@@ -113,6 +123,8 @@ app.layout = html.Div([
         marks={i: str(round(i,1)) for i in range(1,10)},
         value=2
     ),
+    html.Br(),
+    html.Br(),
     dcc.Graph(id='graph', figure = fig)
 ], style={'padding': 40})
 
