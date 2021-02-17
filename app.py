@@ -55,30 +55,8 @@ fig.update_layout(title='Simulations',
                    xaxis_title='k',
                    yaxis_title='Value')
 
-# external JavaScript files
-external_scripts = [
-    'https://www.google-analytics.com/analytics.js',
-    {'src': 'https://cdn.polyfill.io/v2/polyfill.min.js'},
-    {
-        'src': 'https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.10/lodash.core.js',
-        'integrity': 'sha256-Qqd/EfdABZUcAxjOkMi8eGEivtdTkh3b65xCZL4qAQA=',
-        'crossorigin': 'anonymous'
-    }
-]
-
-# external CSS stylesheets
-external_stylesheets = [
-    'https://codepen.io/chriddyp/pen/bWLwgP.css',
-    {
-        'href': 'https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css',
-        'rel': 'stylesheet',
-        'integrity': 'sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO',
-        'crossorigin': 'anonymous'
-    }
-]
-
 ########### Initiate the app
-app = dash.Dash(__name__, external_scripts=external_scripts, external_stylesheets=external_stylesheets)
+app = dash.Dash(__name__)
 server = app.server
 app.title=tabtitle
 
@@ -90,7 +68,7 @@ app.layout = html.Div([
             'textAlign': 'center'
         }
     ),
-     html.Label('Savings rate'),
+     html.Label('Savings rate', style={"margin-top": "15px"}),
     dcc.Slider(
         id='s-slider',
         min=0.1,
@@ -126,7 +104,7 @@ app.layout = html.Div([
         marks={i: str(round(i,1)) for i in np.linspace(0.1,0.9,9)},
         value=0.3
     ),
-    html.Label('Technology'),
+    html.Label('Technology',  style={'padding': 40}),
     dcc.Slider(
         id='tec-slider',
         min=1,
@@ -136,7 +114,7 @@ app.layout = html.Div([
         value=2
     ),
     dcc.Graph(id='graph', figure = fig)
-])
+], style={'padding': 40})
 
 # Define callback to update graph
 @app.callback(
